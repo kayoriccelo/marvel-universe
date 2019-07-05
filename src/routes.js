@@ -1,18 +1,18 @@
+import React from 'react'
+import { LabelImportant, Dashboard } from "@material-ui/icons"
 
 const routes = [
     {
         path: '/',
-        icon: 'idcard',
+        icon: (<Dashboard />),
         exact: false,
-        title: 'Cadastros',
-        routes: [
-            {
-                path: '/cadastro/characters',
-                exact: false,
-                title: 'Characters',
-                // component: Character,
-            },
-        ]
+        title: 'Dashboard'
+    },
+    {
+        path: '/characters',
+        icon: (<LabelImportant />),
+        exact: false,
+        title: 'Characters'
     }
 ]
 
