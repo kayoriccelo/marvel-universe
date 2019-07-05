@@ -27,7 +27,7 @@ const App = ({ classes }) => (
 )
 
 const list = [
-    { id: 1, name: "Diego", text: "Lorem ipsum", image: <ImageIcon /> },
+    { id: 1, name: "Diego",  image: <ImageIcon /> },
     { id: 2, name: "Robson", text: "Lorem ipsum", image: <WorkIcon /> },
     { id: 3, name: "Cleiton", text: "Lorem ipsum", image: <BeachAccessIcon /> }
 ]
@@ -63,7 +63,9 @@ const RightContainer = ({ classes }) => (
         <CardHeader
             avatar={
                 <Avatar aria-label="Recipe" className={classes.avatar}>
-                    <ImageIcon />
+                    <div className={{
+                        background: "url(https://conteudo.imguol.com.br/c/entretenimento/e2/2017/07/07/marvel-logo-1499441146328_v2_900x506.jpgx)"
+                    }} />
                 </Avatar>
             }
             action={
@@ -71,7 +73,7 @@ const RightContainer = ({ classes }) => (
                     <MoreVertIcon />
                 </IconButton>
             }
-            title="Diego"
+            title={<div style={{fontWeight: 'bold'}}>Marvel Universe</div>}
         />
         <CardContent className={[classes.rightContainer, classes.content]} />
     </Grid>

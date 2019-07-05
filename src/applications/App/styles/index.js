@@ -7,10 +7,10 @@ export const styles = () => ({
     },
     card: {
         display: "flex",
-        height: "calc(100vh - 100px)"
+        height: "calc(100vh - 100px)",
     },
     rightBorder: {
-        borderRight: "solid #d0D0D0 1px"
+        borderRight: "solid #d0D0D0 1px",
     },
     content: {
         marginTop: 0
