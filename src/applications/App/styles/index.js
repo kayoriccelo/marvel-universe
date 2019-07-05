@@ -1,5 +1,5 @@
 
-const styles = () => ({
+export const styles = () => ({
     root: {
         padding: "50px 100px",
         zIndex: 999,
@@ -20,11 +20,11 @@ const styles = () => ({
         height: 200,
         width: "100%",
         top: 0,
-        background: "#7159C1"
+        background: "url(https://i.annihil.us/u/prod/marvel/html_blocks_assets/loyalty/avengers.jpg)"
     },
     rightContainer: {
         background:
-            "url(https://hdwallsource.com/img/2014/8/my-neighbor-totoro-wallpaper-27981-28703-hd-wallpapers.jpg) center center",
+            "url(http://i.annihil.us/u/prod/marvel/i/mg/8/e0/52bdf830aa094.jpg) center center",
         flex: 1
     },
     heightAdjust: {
