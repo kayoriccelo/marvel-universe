@@ -24,7 +24,7 @@ export const styles = () => ({
     },
     rightContainer: {
         background:
-            "url(http://i.annihil.us/u/prod/marvel/i/mg/8/e0/52bdf830aa094.jpg) center center",
+            "url(https://vignette.wikia.nocookie.net/logopedia/images/d/d1/Marvel_Entertainment_Logo_%282002%29.jpg/revision/latest?cb=20190325210454) center center",
         flex: 1
     },
     heightAdjust: {

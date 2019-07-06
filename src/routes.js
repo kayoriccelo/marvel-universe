@@ -9,7 +9,7 @@ const routes = [
         title: 'Dashboard'
     },
     {
-        path: '/characters',
+        path: '/characters/listing',
         icon: (<LabelImportant />),
         exact: false,
         title: 'Characters'

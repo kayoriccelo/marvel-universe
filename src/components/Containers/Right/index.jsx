@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
-import MoreVertIcon from "@material-ui/icons/MoreVert"
-import { Grid, CardHeader, CardContent, Avatar, IconButton } from "@material-ui/core"
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Grid, CardHeader, CardContent, IconButton, Box, InputBase } from '@material-ui/core'
+import SearchIcon from '@material-ui/icons/Search'
 import { Route, Switch } from "react-router-dom"
 
-function Home() {
-    return (
-        <div>
-            <h2>Home</h2>
-        </div>
-    )
-}
+import { ListingCharacter, UpdateCharacter } from '../../../applications/Character'
+import { getListingCharactersAPI } from '../../../applications/Character/store/actions'
+
 
 export class RightContainer extends Component {
 
@@ -20,25 +18,32 @@ export class RightContainer extends Component {
             <Grid className={classes.heightAdjust} item xs={9}>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="Recipe" className={classes.avatar}>
-                            <div className={{
-                                background: this.props.img
-                            }} />
-                        </Avatar>
-                    }
-                    action={
-                        <IconButton>
-                            <MoreVertIcon />
-                        </IconButton>
+                        <div>
+                            <Box component="span" m={1}>
+                                <InputBase
+                                    className={classes.input}
+                                    placeholder="Search Characters"
+                                    inputProps={{ 'aria-label': 'Search Characters' }}
+                                    onChange={(e) => this.props.getListingCharactersAPI({ search: e.target.value })}
+                                />
+                                <IconButton className={classes.iconButton} aria-label="Search">
+                                    <SearchIcon />
+                                </IconButton>
+                            </Box>
+                        </div>
                     }
                     title={<div style={{ fontWeight: 'bold' }}>{this.props.title}</div>}
                 />
                 <CardContent className={[classes.rightContainer, classes.content]} >
                     <Switch>
-                        <Route key='1' exact path="/characters" component={Home} />
+                        <Route key='1' exact path="/characters/listing" component={ListingCharacter} />
+                        <Route key='2' exact path="/characters/update/:id" component={UpdateCharacter} />
                     </Switch>
                 </CardContent>
             </Grid>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators({ getListingCharactersAPI }, dispatch)
+export default connect(mapDispatchToProps)(RightContainer)

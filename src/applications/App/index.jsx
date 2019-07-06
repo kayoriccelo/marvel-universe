@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { withStyles } from "@material-ui/core/styles"
-import { BrowserRouter as Router } from 'react-router-dom'
-
+import { Router } from 'react-router-dom'
 import { Grid, Card } from "@material-ui/core"
-import { LeftContainer, RightContainer } from '../../components'
 
+import history from '../../history'
+import { LeftContainer, RightContainer } from '../../components'
 import { styles } from './styles'
 
 
@@ -14,7 +14,7 @@ class App extends Component {
         const { classes } = this.props
 
         return (
-            <Router>
+            <Router history={history}>
                 <div>
                     <div className={classes.background} />
                     <Grid container className={classes.root}>

@@ -1,0 +1,1 @@
+export { characterReducer } from './character'
