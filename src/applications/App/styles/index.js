@@ -24,7 +24,7 @@ export const styles = () => ({
     },
     rightContainer: {
         background:
-            "url(https://vignette.wikia.nocookie.net/logopedia/images/d/d1/Marvel_Entertainment_Logo_%282002%29.jpg/revision/latest?cb=20190325210454) center center",
+            "url(http://vistoja.com.br/wp-content/uploads/2017/10/fundo-vermelho.jpg) center center",
         flex: 1
     },
     heightAdjust: {
@@ -34,8 +34,5 @@ export const styles = () => ({
     paper: {
         background: "#9de1fe",
         padding: 20
-    },
-    information: {
-        color: "#444"
     }
 })

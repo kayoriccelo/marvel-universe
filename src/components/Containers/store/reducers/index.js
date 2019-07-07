@@ -1,0 +1,1 @@
+export { rightReducer } from './right'

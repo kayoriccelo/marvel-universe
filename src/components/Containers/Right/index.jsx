@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Grid, CardHeader, CardContent, IconButton, Box, InputBase } from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
+import { Grid, CardHeader, CardContent } from '@material-ui/core'
 import { Route, Switch } from "react-router-dom"
 
 import { ListingCharacter, UpdateCharacter } from '../../../applications/Character'
@@ -17,22 +16,7 @@ export class RightContainer extends Component {
         return (
             <Grid className={classes.heightAdjust} item xs={9}>
                 <CardHeader
-                    avatar={
-                        <div>
-                            <Box component="span" m={1}>
-                                <InputBase
-                                    className={classes.input}
-                                    placeholder="Search Characters"
-                                    inputProps={{ 'aria-label': 'Search Characters' }}
-                                    onChange={(e) => this.props.getListingCharactersAPI({ search: e.target.value })}
-                                />
-                                <IconButton className={classes.iconButton} aria-label="Search">
-                                    <SearchIcon />
-                                </IconButton>
-                            </Box>
-                        </div>
-                    }
-                    title={<div style={{ fontWeight: 'bold' }}>{this.props.title}</div>}
+                    title={<div>{this.props.title || 'Dashboard'}</div>}
                 />
                 <CardContent className={[classes.rightContainer, classes.content]} >
                     <Switch>
@@ -46,4 +30,7 @@ export class RightContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({ getListingCharactersAPI }, dispatch)
-export default connect(mapDispatchToProps)(RightContainer)
+const mapStateToProps = state => {
+    return { title: state.right.title }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(RightContainer)
