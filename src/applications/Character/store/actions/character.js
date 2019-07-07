@@ -4,6 +4,7 @@ import history from '../../../../history'
 
 export const getListingCharactersAPI = params => {
     let search = params['search'] ? `nameStartsWith=${params['search']}` : ''
+    
     return dispatch => {
         return api.get(`/v1/public/characters?${search}&apikey=${localStorage.getItem('key')}`).then(response => {
             dispatch({ type: Types.LISTING_CHARACTERS, payload: response.data.data.results })
@@ -32,6 +33,7 @@ export const loadCharacter = params => {
     return dispatch => {
         return api.get(`/v1/public/characters/${params['id']}?&apikey=${localStorage.getItem('key')}`).then(response => {
             let character = response.data.data.results[0]
+
             dispatch([{ type: Types.LOAD_CHARACTER, payload: character }, getListingSeries(character.id)])
         })
     }
@@ -39,15 +41,8 @@ export const loadCharacter = params => {
 
 export const updateCharacter = params => {
     return dispatch => {
-        let itens = params['itens'].map(item => {
-            if (item.id === params['instance'].id) {
-                return params['instance']
-            } else {
-                return item
-            }
-        })
+        let itens = params['itens'].map(item => item.id === params['instance'].id ? params['instance'] : item)
 
-        // TODO - Kayo Riccelo: não era necessário, mais por via das dúvidas atualizei o instance do redux também.
         dispatch([
             { type: Types.UPDATE_CHARACTER, payload: params['instance'] },
             { type: Types.LISTING_CHARACTERS, payload: itens }

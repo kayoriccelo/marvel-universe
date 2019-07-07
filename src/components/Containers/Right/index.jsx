@@ -22,6 +22,7 @@ export class RightContainer extends Component {
                     <Switch>
                         <Route key='1' exact path="/characters/listing" component={ListingCharacter} />
                         <Route key='2' exact path="/characters/update/:id" component={UpdateCharacter} />
+                        <Route key='3' exact path="/characters/update/:id/:tab" component={UpdateCharacter} />
                     </Switch>
                 </CardContent>
             </Grid>

@@ -48,7 +48,9 @@ export class Update extends Component {
     }
 
     componentDidMount() {
-        this.props.loadCharacter({ id: this.props.id })
+        this.props.loadCharacter({ id: this.props.id }).then(response => {
+            if (this.props.tab === 'series') this.setState({ tabValue: 1 })
+        })
     }
 
     componentDidUpdate(prevProps, prevState) {

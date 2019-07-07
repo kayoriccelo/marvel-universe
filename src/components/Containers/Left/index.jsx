@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-    makeStyles, Grid, CardHeader, Avatar, List, ListSubheader,
-    ListItem, ListItemText, ListItemIcon
+    makeStyles, Grid, CardHeader, Avatar, List, ListSubheader, ListItem, ListItemText, ListItemIcon
 } from "@material-ui/core"
 import { Link } from "react-router-dom"
 
@@ -35,15 +34,14 @@ export const LeftContainer = () => {
                 }
                 className={classes.root}
             >
-                {
-                    routes.map(item =>
-                        <Link to={item.path}>
-                            <ListItem button>
-                                <ListItemIcon>{item.icon}</ListItemIcon>
-                                <ListItemText primary={item.title} />
-                            </ListItem>
-                        </Link>)
-                }
+                {routes.map(item =>
+                    <Link to={item.path}>
+                        <ListItem button>
+                            <ListItemIcon>{item.icon}</ListItemIcon>
+                            <ListItemText primary={item.title} />
+                        </ListItem>
+                    </Link>
+                )}
             </List>
         )
     }

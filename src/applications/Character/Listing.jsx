@@ -4,61 +4,19 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
     withStyles, List, ListItem, Card, CardHeader, Avatar, IconButton,
-    Paper, InputBase
+    Paper, InputBase, ListItemSecondaryAction
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
-import MenuIcon from '@material-ui/icons/Menu'
+import ListIcon from '@material-ui/icons/List'
 
 import { getListingCharactersAPI, setTitle } from './store/actions'
 
-
-const styles = {
-    root: {
-        width: '100%',
-        // backgroundColor: '#151515',
-    },
-    rootSearch: {
-        display: 'flex',
-        alignItems: 'center',
-        width: '100%',
-        // backgroundColor: '#151515',
-    },
-    listSection: {
-        backgroundColor: 'inherit',
-    },
-    ul: {
-        backgroundColor: 'inherit',
-        padding: 0,
-    },
-    paper: {
-        margin: '10',
-        border: '1px bold',
-    },
-    card: {
-        width: '100%',
-        backgroundColor: '#f9f9f9'
-    },
-    input: {
-        marginLeft: 8,
-        flex: 1,
-    },
-    inputSearch: {
-        width: '100%',
-        padding: '2px 4px'
-    },
-    iconButton: {
-        padding: '2px 4px'
-    },
-    avatar: {
-        width: 80,
-        height: 80,
-    }
-}
 
 class Listing extends Component {
 
     componentWillMount() {
         this.props.setTitle('Characters')
+        
         if (this.props.itens.length === 0) {
             this.props.getListingCharactersAPI({})
         }
@@ -70,23 +28,30 @@ class Listing extends Component {
         return (
             this.props.itens.map(item => {
                 return (
-                    <Link to={`/characters/update/${item.id}`}>
-                        <ListItem>
-                            <Card className={classes.card}>
+                    <ListItem>
+                        <Card className={classes.card}>
+                            <Link to={`/characters/update/${item.id}`}>
                                 <CardHeader
                                     avatar={
                                         <Avatar
                                             aria-label="Recipe"
                                             src={`${item.thumbnail.path}.jpg`}
                                             className={classes.avatar} />
-
                                     }
                                     title={item.name}
                                     subheader={`Series: ${item.series.available}`}
                                 />
-                            </Card>
-                        </ListItem>
-                    </Link>
+                            </Link>
+
+                            <ListItemSecondaryAction className={classes.listItemActions}>
+                                <Link to={`/characters/update/${item.id}/series`}>
+                                    <IconButton edge="end" aria-label="Delete">
+                                        <ListIcon />
+                                    </IconButton>
+                                </Link>
+                            </ListItemSecondaryAction>
+                        </Card>
+                    </ListItem>
                 )
             })
         )
@@ -97,13 +62,9 @@ class Listing extends Component {
 
         this.setState({ search: event.target.value })
 
-        this.timer = setTimeout(
-            () => {
-                let self = this
-                if (self.state.search !== '') {
-                    this.props.getListingCharactersAPI({ search: self.state.search })
-                }
-            }, 1000)
+        this.timer = setTimeout(() => {
+            this.props.getListingCharactersAPI({ search: this.state.search })
+        }, 1000)
     }
 
     render() {
@@ -134,11 +95,53 @@ class Listing extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { itens: state.character.itens }
+const styles = {
+    root: {
+        width: '100%',
+    },
+    rootSearch: {
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%'
+    },
+    listSection: {
+        backgroundColor: 'inherit',
+    },
+    ul: {
+        backgroundColor: 'inherit',
+        padding: 0,
+    },
+    paper: {
+        margin: '10',
+        border: '1px bold',
+    },
+    card: {
+        width: '100%',
+        backgroundColor: '#f9f9f9'
+    },
+    input: {
+        marginLeft: 8,
+        flex: 1,
+    },
+    inputSearch: {
+        width: '100%',
+        padding: '2px 4px'
+    },
+    iconButton: {
+        padding: '2px 4px'
+    },
+    avatar: {
+        width: 80,
+        height: 80,
+    },
+    listItemActions: {
+        marginRight: 20
+    }
 }
+
+const mapStateToProps = state => ({ itens: state.character.itens })
+
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getListingCharactersAPI,
-    setTitle
+    getListingCharactersAPI, setTitle
 }, dispatch)
 export default (withStyles(styles, { withTheme: true }))(connect(mapStateToProps, mapDispatchToProps)(Listing))
