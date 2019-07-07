@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import {
     withStyles, List, ListItem, Card, CardHeader, Avatar, IconButton,
     Paper, InputBase, ListItemSecondaryAction
@@ -12,11 +13,11 @@ import ListIcon from '@material-ui/icons/List'
 import { getListingCharactersAPI, setTitle } from './store/actions'
 
 
-class Listing extends Component {
+export class Listing extends Component {
 
     componentWillMount() {
         this.props.setTitle('Characters')
-        
+
         if (this.props.itens.length === 0) {
             this.props.getListingCharactersAPI({})
         }
@@ -95,7 +96,13 @@ class Listing extends Component {
     }
 }
 
-const styles = {
+Listing.propTypes = {
+    itens: PropTypes.array.isRequired,
+    getListingCharactersAPI: PropTypes.func.isRequired,
+    setTitle: PropTypes.func.isRequired
+}
+
+export const styles = {
     root: {
         width: '100%',
     },
@@ -144,4 +151,5 @@ const mapStateToProps = state => ({ itens: state.character.itens })
 const mapDispatchToProps = dispatch => bindActionCreators({
     getListingCharactersAPI, setTitle
 }, dispatch)
+
 export default (withStyles(styles, { withTheme: true }))(connect(mapStateToProps, mapDispatchToProps)(Listing))

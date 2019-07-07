@@ -1,0 +1,685 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`async actions Testing load of characters with search of API 1`] = `
+Array [
+  Object {
+    "characters": Object {
+      "attributionHTML": "<a href=\\"http://marvel.com\\">Data provided by Marvel. © 2019 MARVEL</a>",
+      "attributionText": "Data provided by Marvel. © 2019 MARVEL",
+      "code": 200,
+      "copyright": "© 2019 MARVEL",
+      "data": Object {
+        "count": 1,
+        "limit": 20,
+        "offset": 0,
+        "results": Array [
+          Object {
+            "comics": Object {
+              "available": 3,
+              "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/comics",
+              "items": Array [
+                Object {
+                  "name": "Hulk (2008) #53",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/40632",
+                },
+                Object {
+                  "name": "Hulk (2008) #54",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/40630",
+                },
+                Object {
+                  "name": "Hulk (2008) #55",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/40628",
+                },
+              ],
+              "returned": 3,
+            },
+            "description": "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
+            "events": Object {
+              "available": 0,
+              "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/events",
+              "items": Array [],
+              "returned": 0,
+            },
+            "id": 1017100,
+            "modified": "2013-09-18T15:54:04-0400",
+            "name": "A-Bomb (HAS)",
+            "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017100",
+            "series": Object {
+              "available": 1,
+              "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/series",
+              "items": Array [
+                Object {
+                  "name": "Hulk (2008 - 2012)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/series/3374",
+                },
+              ],
+              "returned": 1,
+            },
+            "stories": Object {
+              "available": 7,
+              "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/stories",
+              "items": Array [
+                Object {
+                  "name": "Hulk (2008) #55",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92078",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Interior #92079",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92079",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #54",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92082",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Interior #92083",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92083",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #53",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92086",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Interior #92087",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/92087",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "cover from Free Comic Book Day 2013 (Avengers/Hulk) (2013) #1",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/105929",
+                  "type": "cover",
+                },
+              ],
+              "returned": 7,
+            },
+            "thumbnail": Object {
+              "extension": "jpg",
+              "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16",
+            },
+            "urls": Array [
+              Object {
+                "type": "detail",
+                "url": "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=b4d501dcee9bef6f801ce9b6e3de32a3",
+              },
+              Object {
+                "type": "comiclink",
+                "url": "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=b4d501dcee9bef6f801ce9b6e3de32a3",
+              },
+            ],
+          },
+        ],
+        "total": 1,
+      },
+      "etag": "c77bcd8aed119f1851f4704498fa9874d3256597",
+      "status": "Ok",
+    },
+    "type": "LISTING_CHARACTERS",
+  },
+]
+`;
+
+exports[`async actions Testing load of series with id_character of API 1`] = `
+Array [
+  Object {
+    "characters": Object {
+      "attributionHTML": "<a href=\\"http://marvel.com\\">Data provided by Marvel. © 2019 MARVEL</a>",
+      "attributionText": "Data provided by Marvel. © 2019 MARVEL",
+      "code": 200,
+      "copyright": "© 2019 MARVEL",
+      "data": Object {
+        "count": 1,
+        "limit": 20,
+        "offset": 0,
+        "results": Array [
+          Object {
+            "characters": Object {
+              "available": 50,
+              "collectionURI": "http://gateway.marvel.com/v1/public/series/3374/characters",
+              "items": Array [
+                Object {
+                  "name": "A-Bomb (HAS)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017100",
+                },
+                Object {
+                  "name": "Aaron Stack",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010699",
+                },
+                Object {
+                  "name": "Abomination (Emil Blonsky)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009146",
+                },
+                Object {
+                  "name": "Abomination (Ultimate)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1016823",
+                },
+                Object {
+                  "name": "Alpha Flight",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010370",
+                },
+                Object {
+                  "name": "Aurora",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009163",
+                },
+                Object {
+                  "name": "Avengers",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009165",
+                },
+                Object {
+                  "name": "Ben Grimm",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009329",
+                },
+                Object {
+                  "name": "Betty Ross",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009548",
+                },
+                Object {
+                  "name": "Black Widow",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+                },
+                Object {
+                  "name": "Bruce Banner",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009167",
+                },
+                Object {
+                  "name": "Captain America",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+                },
+                Object {
+                  "name": "Daredevil",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009262",
+                },
+                Object {
+                  "name": "Doc Samson",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009275",
+                },
+                Object {
+                  "name": "Doctor Strange",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009282",
+                },
+                Object {
+                  "name": "Eternals",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010807",
+                },
+                Object {
+                  "name": "Guardian",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009330",
+                },
+                Object {
+                  "name": "Hawkeye",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009338",
+                },
+                Object {
+                  "name": "Hercules",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009343",
+                },
+                Object {
+                  "name": "Hulk",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009351",
+                },
+              ],
+              "returned": 20,
+            },
+            "comics": Object {
+              "available": 104,
+              "collectionURI": "http://gateway.marvel.com/v1/public/series/3374/comics",
+              "items": Array [
+                Object {
+                  "name": "Hulk (2008) #1",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/17623",
+                },
+                Object {
+                  "name": "Hulk (2008) #1 (COIPEL VARIANT)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/17624",
+                },
+                Object {
+                  "name": "Hulk (2008) #2",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/20668",
+                },
+                Object {
+                  "name": "Hulk (2008) #3",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/20863",
+                },
+                Object {
+                  "name": "Hulk (2008) #4",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/20999",
+                },
+                Object {
+                  "name": "Hulk (2008) #4 (MCGUINNESS (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/25378",
+                },
+                Object {
+                  "name": "Hulk (2008) #5",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/21535",
+                },
+                Object {
+                  "name": "Hulk (2008) #5 (COIPEL (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/21536",
+                },
+                Object {
+                  "name": "Hulk (2008) #6",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/21968",
+                },
+                Object {
+                  "name": "Hulk (2008) #6 (MCGUINNESS (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/21967",
+                },
+                Object {
+                  "name": "Hulk (2008) #7",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22289",
+                },
+                Object {
+                  "name": "Hulk (2008) #7 (CHO (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22290",
+                },
+                Object {
+                  "name": "Hulk (2008) #8",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22496",
+                },
+                Object {
+                  "name": "Hulk (2008) #8 (BUSCEMA VARIANT)",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22497",
+                },
+                Object {
+                  "name": "Hulk (2008) #8 (CHO (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22498",
+                },
+                Object {
+                  "name": "Hulk (2008) #9",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22902",
+                },
+                Object {
+                  "name": "Hulk (2008) #9 (CHO (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/22901",
+                },
+                Object {
+                  "name": "Hulk (2008) #10",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/23601",
+                },
+                Object {
+                  "name": "Hulk (2008) #10 (MCGUINNESS (50/50 COVER))",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/23602",
+                },
+                Object {
+                  "name": "Hulk (2008) #11",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/comics/23961",
+                },
+              ],
+              "returned": 20,
+            },
+            "creators": Object {
+              "available": 87,
+              "collectionURI": "http://gateway.marvel.com/v1/public/series/3374/creators",
+              "items": Array [
+                Object {
+                  "name": "Comicraft",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/807",
+                  "role": "letterer",
+                },
+                Object {
+                  "name": "Virtual Calligr",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/452",
+                  "role": "letterer",
+                },
+                Object {
+                  "name": "Vc Clayton Cowles",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/10172",
+                  "role": "letterer",
+                },
+                Object {
+                  "name": "Guru-eFX",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/8571",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Jesus Aburtov",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/11482",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Elizabeth Dismang Breitweiser",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/13309",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Dan Brown",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/11543",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Jim Charalampidis",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/9937",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "David Curiel",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/13021",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Frank D'ARMATA",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/8504",
+                  "role": "colorist",
+                },
+                Object {
+                  "name": "Arthur Adams",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/12208",
+                  "role": "inker",
+                },
+                Object {
+                  "name": "Dario Brizuela",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/8317",
+                  "role": "inker",
+                },
+                Object {
+                  "name": "Sal Buscema",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/105",
+                  "role": "inker",
+                },
+                Object {
+                  "name": "Frank Cho",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/185",
+                  "role": "inker",
+                },
+                Object {
+                  "name": "Axel Alonso",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/4014",
+                  "role": "editor",
+                },
+                Object {
+                  "name": "Jean-&#8203;Francois Beaulieu",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/12226",
+                  "role": "other",
+                },
+                Object {
+                  "name": "Ian Churchill",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/1192",
+                  "role": "other",
+                },
+                Object {
+                  "name": "Elena Casagrande",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/9998",
+                  "role": "penciller",
+                },
+                Object {
+                  "name": "Olivier Coipel",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/6170",
+                  "role": "penciller (cover)",
+                },
+                Object {
+                  "name": "Boo Cook",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/creators/8132",
+                  "role": "penciller (cover)",
+                },
+              ],
+              "returned": 20,
+            },
+            "description": "General Thunderbolt Ross spent years hunting the Hulk, but now he's become one himself! As the rampaging Red Hulk, Ross strives to reconcile the man he used to be with the monster he's becomes, smashing anything that moves along the way!",
+            "endYear": 2012,
+            "events": Object {
+              "available": 3,
+              "collectionURI": "http://gateway.marvel.com/v1/public/series/3374/events",
+              "items": Array [
+                Object {
+                  "name": "Dark Reign",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/events/318",
+                },
+                Object {
+                  "name": "Fall of the Hulks",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/events/297",
+                },
+                Object {
+                  "name": "World War Hulks",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/events/60",
+                },
+              ],
+              "returned": 3,
+            },
+            "id": 3374,
+            "modified": "2013-03-06T11:40:06-0500",
+            "next": null,
+            "previous": null,
+            "rating": "T+",
+            "resourceURI": "http://gateway.marvel.com/v1/public/series/3374",
+            "startYear": 2008,
+            "stories": Object {
+              "available": 254,
+              "collectionURI": "http://gateway.marvel.com/v1/public/series/3374/stories",
+              "items": Array [
+                Object {
+                  "name": "",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/25970",
+                  "type": "",
+                },
+                Object {
+                  "name": "Red Hulk 1 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/36876",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Red Hulk 1 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/36877",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 1 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/36878",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Red Hulk 1 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/36879",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 1 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/36880",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #2",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/44318",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 2 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/44319",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Red Hulk 3 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/44674",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 3 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/44675",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #4",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/45518",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 4 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/45519",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #4",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/45520",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 4 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/45521",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Hulk (2008) #5",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/47476",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 5 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/47477",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Red Hulk 5 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/47478",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 5 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/47479",
+                  "type": "interiorStory",
+                },
+                Object {
+                  "name": "Red Hulk 6 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/48329",
+                  "type": "cover",
+                },
+                Object {
+                  "name": "Red Hulk 6 of 12",
+                  "resourceURI": "http://gateway.marvel.com/v1/public/stories/48330",
+                  "type": "interiorStory",
+                },
+              ],
+              "returned": 20,
+            },
+            "thumbnail": Object {
+              "extension": "jpg",
+              "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/d0/5137710f56aa1",
+            },
+            "title": "Hulk (2008 - 2012)",
+            "type": "ongoing",
+            "urls": Array [
+              Object {
+                "type": "detail",
+                "url": "http://marvel.com/comics/series/3374/hulk_2008_-_2012?utm_campaign=apiRef&utm_source=b4d501dcee9bef6f801ce9b6e3de32a3",
+              },
+            ],
+          },
+        ],
+        "total": 1,
+      },
+      "etag": "28e1565c0097480c3e636de5656edebcdbb69218",
+      "status": "Ok",
+    },
+    "type": "LISTING_CHARACTERS",
+  },
+]
+`;
+
+exports[`async actions Testing loading of character with id in API 1`] = `
+Array [
+  Object {
+    "characters": Object {
+      "comics": Object {
+        "available": 3,
+        "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/comics",
+        "items": Array [
+          Object {
+            "name": "Hulk (2008) #53",
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/40632",
+          },
+          Object {
+            "name": "Hulk (2008) #54",
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/40630",
+          },
+          Object {
+            "name": "Hulk (2008) #55",
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/40628",
+          },
+        ],
+        "returned": 3,
+      },
+      "description": "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
+      "events": Object {
+        "available": 0,
+        "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/events",
+        "items": Array [],
+        "returned": 0,
+      },
+      "id": 1017100,
+      "modified": "2013-09-18T15:54:04-0400",
+      "name": "A-Bomb (HAS)",
+      "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017100",
+      "series": Object {
+        "available": 1,
+        "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/series",
+        "items": Array [
+          Object {
+            "name": "Hulk (2008 - 2012)",
+            "resourceURI": "http://gateway.marvel.com/v1/public/series/3374",
+          },
+        ],
+        "returned": 1,
+      },
+      "stories": Object {
+        "available": 7,
+        "collectionURI": "http://gateway.marvel.com/v1/public/characters/1017100/stories",
+        "items": Array [
+          Object {
+            "name": "Hulk (2008) #55",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92078",
+            "type": "cover",
+          },
+          Object {
+            "name": "Interior #92079",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92079",
+            "type": "interiorStory",
+          },
+          Object {
+            "name": "Hulk (2008) #54",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92082",
+            "type": "cover",
+          },
+          Object {
+            "name": "Interior #92083",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92083",
+            "type": "interiorStory",
+          },
+          Object {
+            "name": "Hulk (2008) #53",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92086",
+            "type": "cover",
+          },
+          Object {
+            "name": "Interior #92087",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/92087",
+            "type": "interiorStory",
+          },
+          Object {
+            "name": "cover from Free Comic Book Day 2013 (Avengers/Hulk) (2013) #1",
+            "resourceURI": "http://gateway.marvel.com/v1/public/stories/105929",
+            "type": "cover",
+          },
+        ],
+        "returned": 7,
+      },
+      "thumbnail": Object {
+        "extension": "jpg",
+        "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16",
+      },
+      "urls": Array [
+        Object {
+          "type": "detail",
+          "url": "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=b4d501dcee9bef6f801ce9b6e3de32a3",
+        },
+        Object {
+          "type": "comiclink",
+          "url": "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=b4d501dcee9bef6f801ce9b6e3de32a3",
+        },
+      ],
+    },
+    "type": "LISTING_CHARACTERS",
+  },
+]
+`;

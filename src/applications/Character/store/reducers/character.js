@@ -1,7 +1,7 @@
 import * as Types from '../types'
 
 
-const initialState = {
+export const initialState = {
     itens: [],
     series: [],
     instance: {
@@ -24,7 +24,7 @@ export const characterReducer = (state = initialState, action) => {
             return { ...state, instance: action.payload }
 
         case Types.UPDATE_CHARACTER:
-            return { ...state, character: action.payload }
+            return { ...state, instance: action.payload }
 
         case Types.LISTING_SERIES:
             return { ...state, series: action.payload }
