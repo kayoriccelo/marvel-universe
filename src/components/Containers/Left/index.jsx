@@ -42,7 +42,7 @@ export const LeftContainer = () => {
                     <Avatar
                         aria-label="Recipe"
                         className={classes.avatar}
-                        src="https://conteudo.imguol.com.br/c/entretenimento/e2/2017/07/07/marvel-logo-1499441146328_v2_900x506.jpg" />
+                        src="http://hidetoyasunori.com/portfolio/wp-content/uploads/2017/02/marvel_favicon.png" />
                 }
             />
             {renderListItems(routes)}
