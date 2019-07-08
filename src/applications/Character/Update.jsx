@@ -47,10 +47,15 @@ export class Update extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.loadCharacter({ id: this.props.id }).then(response => {
             if (this.props.tab === 'series') this.setState({ tabValue: 1 })
+            this.props.setTitle(`Update Character ${this.state.instance.name}`)
         })
+    }
+
+    componentWillUnmount() {
+        this.props.setTitle(`Dashboard`)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -61,6 +66,7 @@ export class Update extends Component {
 
     handleChange = (event, name) => {
         this.setState({ instance: { ...this.state.instance, [name]: event.target.value } })
+        this.props.setTitle(`Update Character ${this.state.instance.name}`)
     }
 
     handleChangeTab = (event, value) => {

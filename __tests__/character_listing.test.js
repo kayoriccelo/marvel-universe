@@ -1,24 +1,19 @@
-import { shallowCharacterSetup } from './character.config'
+import { shallowListingCharacterSetup } from './character.config'
 import sinon from 'sinon'
 
 describe('Shallow rendered Character Listing', () => {
     let wrapper
 
     beforeEach(() => {
-        // const { enzymeWrapper } = shallowCharacterSetup()
-
-        // wrapper = enzymeWrapper
+        const { enzymeWrapper } = shallowListingCharacterSetup()
+        wrapper = enzymeWrapper
     })
 
-    afterEach(() => {
-
-    })
+    afterEach(() => {})
 
     it('should render a list characters', () => {
 
-        // const { enzymeWrapper } = shallowCharacterSetup()
-        
-        expect(true).toBe(true)
+        expect(wrapper).toMatchSnapshot()
 
     })
 })

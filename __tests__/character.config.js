@@ -1,12 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Listing } from '../src/applications/Character/Listing'
+import { Update } from '../src/applications/Character/Update'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
 
 const mockStore = configureStore()
 let [setTitle, getListingCharactersAPI] = new Array(1).fill(jest.fn())
+
 export const initialState = {
     itens: [{
         "id": 1011334,
@@ -162,15 +164,29 @@ export const initialState = {
 
 const store = mockStore(initialState)
 
-export function shallowCharacterSetup() {
+export function shallowListingCharacterSetup() {
     const enzymeWrapper = shallow(
-        // <Provider store={store}>
+        <Provider store={store}>
             <Listing
-                store={store}
                 setTitle={setTitle}
                 getListingCharactersAPI={getListingCharactersAPI}
             />
-        // </Provider>
+        </Provider>
+    ).dive()
+
+    return {
+        enzymeWrapper
+    }
+}
+
+export function shallowUpdateCharacterSetup() {
+    const enzymeWrapper = shallow(
+        <Provider store={store}>
+            <Update
+                setTitle={setTitle}
+                getListingCharactersAPI={getListingCharactersAPI}
+            />
+        </Provider>
     ).dive()
 
     return {

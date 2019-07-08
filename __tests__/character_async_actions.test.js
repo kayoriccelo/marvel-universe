@@ -17,11 +17,11 @@ describe('async actions', () => {
     let store
 
     beforeEach(() => {
-        store = mockStore({});
+        store = mockStore({})
     })
 
     afterEach(() => {
-        nock.cleanAll();
+        nock.cleanAll()
     })
 
     it('Testing load of characters with search of API', () => {
@@ -33,7 +33,7 @@ describe('async actions', () => {
 
         return store.dispatch(Actions.getListingCharactersAPI({ search: 'a-bomb', apikey: 'b4d501dcee9bef6f801ce9b6e3de32a3' }))
             .then(() => {
-                expect(store.getActions()).toMatchSnapshot();
+                expect(store.getActions()).toMatchSnapshot()
             })
     })
 
@@ -46,7 +46,7 @@ describe('async actions', () => {
 
         return store.dispatch(Actions.loadCharacter({ id: 1017100 }))
             .then(() => {
-                expect(store.getActions()).toMatchSnapshot();
+                expect(store.getActions()).toMatchSnapshot()
             })
     })
 
@@ -59,7 +59,7 @@ describe('async actions', () => {
 
         return store.dispatch(Actions.getListingSeries(1017100))
             .then(() => {
-                expect(store.getActions()).toMatchSnapshot();
+                expect(store.getActions()).toMatchSnapshot()
             })
     })
 

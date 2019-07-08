@@ -16,11 +16,13 @@ import { getListingCharactersAPI, setTitle } from './store/actions'
 export class Listing extends Component {
 
     componentWillMount() {
-        this.props.setTitle('Characters')
-
         if (this.props.itens.length === 0) {
             this.props.getListingCharactersAPI({})
         }
+    }
+
+    componentWillUnmount() {
+        this.props.setTitle('Dashboad')
     }
 
     renderListItens() {
@@ -30,21 +32,21 @@ export class Listing extends Component {
             this.props.itens.map(item => {
                 return (
                     <ListItem>
-                        <Card className={classes.card}>
+                        <Card className={classes.card || null}>
                             <Link to={`/characters/update/${item.id}`}>
                                 <CardHeader
                                     avatar={
                                         <Avatar
                                             aria-label="Recipe"
                                             src={`${item.thumbnail.path}.jpg`}
-                                            className={classes.avatar} />
+                                            className={classes.avatar || null} />
                                     }
                                     title={item.name}
                                     subheader={`Series: ${item.series.available}`}
                                 />
                             </Link>
 
-                            <ListItemSecondaryAction className={classes.listItemActions}>
+                            <ListItemSecondaryAction className={classes.listItemActions || null}>
                                 <Link to={`/characters/update/${item.id}/series`}>
                                     <IconButton edge="end" aria-label="Delete">
                                         <ListIcon />
@@ -69,15 +71,17 @@ export class Listing extends Component {
     }
 
     render() {
+        this.props.setTitle('Characters')
+
         const { classes } = this.props
 
         return (
             <div>
                 <div style={{ marginBottom: 15 }}>
-                    <Paper className={classes.rootSearch}>
-                        <SearchIcon className={classes.iconButton} />
+                    <Paper className={classes.rootSearch || null}>
+                        <SearchIcon className={classes.iconButton || null} />
                         <InputBase
-                            className={classes.inputSearch}
+                            className={classes.inputSearch || null}
                             placeholder="Search Characters"
                             inputProps={{ 'aria-label': 'Characters' }}
                             onChange={this.onSearch}
@@ -85,7 +89,7 @@ export class Listing extends Component {
                     </Paper>
                 </div>
                 <div style={{ maxHeight: 700, overflow: 'auto' }}>
-                    <Paper className={classes.root}>
+                    <Paper className={classes.root || null}>
                         <List subheader={<li />} >
                             {this.renderListItens()}
                         </List>
@@ -94,12 +98,6 @@ export class Listing extends Component {
             </div >
         )
     }
-}
-
-Listing.propTypes = {
-    itens: PropTypes.array.isRequired,
-    getListingCharactersAPI: PropTypes.func.isRequired,
-    setTitle: PropTypes.func.isRequired
 }
 
 export const styles = {
@@ -146,7 +144,10 @@ export const styles = {
     }
 }
 
-const mapStateToProps = state => ({ itens: state.character.itens })
+const mapStateToProps = state => ({ 
+    itens: state.character.itens,
+    title: state.right.title
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     getListingCharactersAPI, setTitle

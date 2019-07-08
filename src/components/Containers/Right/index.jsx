@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Grid, CardHeader, CardContent } from '@material-ui/core'
 import { Route, Switch } from "react-router-dom"
 
 import { ListingCharacter, UpdateCharacter } from '../../../applications/Character'
-import { getListingCharactersAPI } from '../../../applications/Character/store/actions'
 
 
 export class RightContainer extends Component {
@@ -30,8 +28,7 @@ export class RightContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ getListingCharactersAPI }, dispatch)
 const mapStateToProps = state => {
     return { title: state.right.title }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(RightContainer)
+export default connect(mapStateToProps, null)(RightContainer)
