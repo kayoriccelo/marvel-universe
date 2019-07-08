@@ -6,18 +6,6 @@ import { Link } from "react-router-dom"
 
 import routes from "../../../routes"
 
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-    nested: {
-        paddingLeft: theme.spacing(4),
-    },
-}))
-
 export const LeftContainer = () => {
     const classes = useStyles()
 
@@ -61,3 +49,14 @@ export const LeftContainer = () => {
         </Grid>
     )
 }
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+    },
+    nested: {
+        paddingLeft: theme.spacing(4),
+    },
+}))

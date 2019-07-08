@@ -2,10 +2,9 @@ import React, { Component } from "react"
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import {
-    withStyles, List, ListItem, Card, CardHeader, Avatar, IconButton,
-    Paper, InputBase, ListItemSecondaryAction
+    withStyles, List, ListItem, Card, CardHeader, Avatar, IconButton, Paper, InputBase, 
+    ListItemSecondaryAction
 } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import ListIcon from '@material-ui/icons/List'
@@ -72,7 +71,6 @@ export class Listing extends Component {
 
     render() {
         this.props.setTitle('Characters')
-
         const { classes } = this.props
 
         return (
@@ -88,7 +86,7 @@ export class Listing extends Component {
                         />
                     </Paper>
                 </div>
-                <div style={{ maxHeight: 700, overflow: 'auto' }}>
+                <div style={{ maxHeight: 800, overflow: 'auto' }}>
                     <Paper className={classes.root || null}>
                         <List subheader={<li />} >
                             {this.renderListItens()}
@@ -102,7 +100,7 @@ export class Listing extends Component {
 
 export const styles = {
     root: {
-        width: '100%',
+        width: '100%'
     },
     rootSearch: {
         display: 'flex',
@@ -112,21 +110,9 @@ export const styles = {
     listSection: {
         backgroundColor: 'inherit',
     },
-    ul: {
-        backgroundColor: 'inherit',
-        padding: 0,
-    },
-    paper: {
-        margin: '10',
-        border: '1px bold',
-    },
     card: {
         width: '100%',
         backgroundColor: '#f9f9f9'
-    },
-    input: {
-        marginLeft: 8,
-        flex: 1,
     },
     inputSearch: {
         width: '100%',

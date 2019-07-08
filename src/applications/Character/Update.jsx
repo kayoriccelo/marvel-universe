@@ -56,6 +56,7 @@ export class Update extends Component {
 
     componentWillUnmount() {
         this.props.setTitle(`Dashboard`)
+        this.props.clearSeries()
     }
 
     componentDidUpdate(prevProps, prevState) {
