@@ -25,18 +25,10 @@ Object {
 
 exports[`Character reducer should return the instance updated "UPDATE_CHARACTER" 1`] = `
 Object {
-  "character": Object {
-    "description": null,
-    "id": null,
-    "name": "Testing",
-    "thumbnail": Object {
-      "path": "",
-    },
-  },
   "instance": Object {
     "description": null,
     "id": null,
-    "name": null,
+    "name": "Testing",
     "thumbnail": Object {
       "path": "",
     },

@@ -1,7 +1,10 @@
 import axios from 'axios'
 
-localStorage.setItem('key', 'b4d501dcee9bef6f801ce9b6e3de32a3')
+axios.interceptors.request.use(config => {
+    let prefix = config.url.indexOf('?') === -1 ? '?' : '&'
 
-axios.defaults.baseURL = 'https://gateway.marvel.com:443'
+    config.url = `https://gateway.marvel.com:443${config.url + prefix}apikey=b4d501dcee9bef6f801ce9b6e3de32a3`
+    return config
+})
 
 export default axios

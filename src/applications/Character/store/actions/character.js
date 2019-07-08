@@ -3,10 +3,10 @@ import * as Types from '../types'
 import history from '../../../../history'
 
 export const getListingCharactersAPI = params => {
-    let search = params['search'] ? `nameStartsWith=${params['search']}` : ''
+    let search = params['search'] ? `?nameStartsWith=${params['search']}` : ''
     
     return dispatch => {
-        return api.get(`/v1/public/characters?${search}&apikey=${localStorage.getItem('key')}`).then(response => {
+        return api.get(`/v1/public/characters${search}`).then(response => {
             dispatch({ type: Types.LISTING_CHARACTERS, payload: response.data.data.results })
 
             return response.data.results
@@ -14,27 +14,30 @@ export const getListingCharactersAPI = params => {
     }
 }
 
-
 export const getListingCharacters = _ => {
     return dispatch => dispatch({ type: Types.LISTING_CHARACTERS })
 }
 
 export const getListingSeries = character => {
     return dispatch => {
-        return api.get(`v1/public/characters/${character}/series?&apikey=${localStorage.getItem('key')}`).then(response => {
-            dispatch({ type: Types.LISTING_SERIES, payload: response.data.data.results})
+        return api.get(`/v1/public/characters/${character}/series`).then(response => {
+            let series = response.data.data ? response.data.data.results : response.data
+            
+            dispatch({ type: Types.LISTING_SERIES, payload: series})
 
-            return response.data.data.results
+            return series
         })
     }
 }
 
 export const loadCharacter = params => {
     return dispatch => {
-        return api.get(`/v1/public/characters/${params['id']}?&apikey=${localStorage.getItem('key')}`).then(response => {
-            let character = response.data.data.results[0]
+        return api.get(`/v1/public/characters/${params['id']}`).then(response => {
+            let character = response.data.data ? response.data.data.results[0] : response.data
 
-            dispatch([{ type: Types.LOAD_CHARACTER, payload: character }, getListingSeries(character.id)])
+            dispatch({ type: Types.LOAD_CHARACTER, payload: character })
+
+            return getListingSeries(character.id)
         })
     }
 }
