@@ -7,9 +7,8 @@ yarn start
 
 yarn test
 
-===============
-
 Fontes de pesquisa
+===============
 
 * React
 https://pt-br.reactjs.org/
