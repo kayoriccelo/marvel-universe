@@ -27,7 +27,9 @@ const style = {
     },
     media: {
         top: 0,
-        height: 250
+        width: '100%',
+        height: 400,
+        backgroundSize: '100% 100%',
     },
     avatar: {
         margin: 10,
