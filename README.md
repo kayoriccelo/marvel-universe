@@ -1,5 +1,4 @@
-Marvel Universe
-===============
+# Marvel Universe
 
 yarn install
 
@@ -7,7 +6,7 @@ yarn start
 
 yarn test
 
-# Fontes de pesquisa
++ Fontes de pesquisa
 
 * React
 https://pt-br.reactjs.org/
