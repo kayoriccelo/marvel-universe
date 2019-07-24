@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {
@@ -38,56 +38,45 @@ const style = {
     }
 }
 
-export class Update extends Component {
+export const Update = props => {
+    const [instance, setInstance] = useState(null)
+    const [tabValue, setTabValue] = useState(0)
 
-    constructor(props) {
-        super(props)
+    useEffect(() => {
+        instance === null && setInstance(props.instance)
+    }, [props.instance])
 
-        this.state = {
-            instance: null,
-            tabValue: 0,
-        }
-    }
-
-    componentWillMount() {
-        this.props.loadCharacter({ id: this.props.id }).then(response => {
-            if (this.props.tab === 'series') this.setState({ tabValue: 1 })
-            this.props.setTitle(`Update Character ${this.state.instance.name}`)
+    useEffect(() => {
+        props.loadCharacter({ id: props.id }).then(res => {
+            props.tab === 'series' && props.setTabValue(1)
+            props.setTitle(`Update Character ${instance.name}`)
         })
-    }
 
-    componentWillUnmount() {
-        this.props.setTitle(`Dashboard`)
-        this.props.clearSeries()
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.instance === null) {
-            this.setState({ instance: this.props.instance })
+        return () => {
+            props.setTitle(`Dashboard`)
+            props.clearSeries()
         }
+    })
+
+    const handleChange = (event, name) => {
+        setInstance({ ...instance, [name]: event.target.value })
+        props.setTitle(`Update Character ${instance.name}`)
     }
 
-    handleChange = (event, name) => {
-        this.setState({ instance: { ...this.state.instance, [name]: event.target.value } })
-        this.props.setTitle(`Update Character ${this.state.instance.name}`)
+    const handleChangeTab = (event, value) => {
+        setTabValue(value)
     }
 
-    handleChangeTab = (event, value) => {
-        this.setState({ tabValue: value })
+    const handlerSubmit = () => {
+        props.updateCharacter({ instance, itens: props.itens })
     }
 
-    handlerSubmit = () => {
-        this.props.updateCharacter({ instance: this.state.instance, itens: this.props.itens })
-    }
-
-    renderSeries = () => {
-        const { classes } = this.props
-
+    const renderSeries = () => {
         return (
-            this.props.series.map(item => {
+            props.series.map(item => {
                 return [<ListItem key={item.name} alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src={`${item.thumbnail.path}.jpg`} className={classes.avatar} />
+                        <Avatar alt="Remy Sharp" src={`${item.thumbnail.path}.jpg`} className={props.classes.avatar} />
                     </ListItemAvatar>
                     <ListItemText
                         primary={item.title}
@@ -105,91 +94,81 @@ export class Update extends Component {
         )
     }
 
-    render() {
-        const { classes } = this.props
-        const { instance } = this.state
-
-        return (
-            instance &&
-            <Card className={classes.card}>
-                <CardMedia
-                    className={classes.media}
-                    image={`${this.state.instance.thumbnail.path}.jpg`}
-                    title={this.state.instance.name}
-                />
-                <CardContent>
-                    <Tabs
-                        value={this.state.tabValue}
-                        onChange={this.handleChangeTab}
-                        variant="fullWidth"
-                        indicatorColor="primary"
-                        textColor="primary"
-                    >
-                        <Tab key='0' value={0} icon={<PersonPinIcon />} aria-label="Person" />
-                        <Tab key='1' value={1} icon={<ListIcon />} aria-label="Series" />
-                    </Tabs>
-                    {this.state.tabValue === 0 &&
+    return (
+        instance &&
+        <Card className={props.classes.card}>
+            <CardMedia
+                className={props.classes.media}
+                image={`${instance.thumbnail.path}.jpg`}
+                title={instance.name}
+            />
+            <CardContent>
+                <Tabs
+                    value={tabValue}
+                    onChange={handleChangeTab}
+                    variant="fullWidth"
+                    indicatorColor="primary"
+                    textColor="primary"
+                >
+                    <Tab key='0' value={0} icon={<PersonPinIcon />} aria-label="Person" />
+                    <Tab key='1' value={1} icon={<ListIcon />} aria-label="Series" />
+                </Tabs>
+                {tabValue === 0 &&
+                    <div>
                         <div>
-                            <div>
-                                <TextField
-                                    id="outlined-name"
-                                    label="Name"
-                                    className={classes.textField}
-                                    value={this.state.instance.name}
-                                    onChange={(e) => this.handleChange(e, 'name')}
-                                    margin="normal"
-                                    variant="outlined"
-                                />
-                            </div>
-                            <div>
-                                <TextField
-                                    id="outlined-multiline-flexible"
-                                    label="Description"
-                                    multiline
-                                    rowsMax="5"
-                                    value={this.state.instance.description}
-                                    onChange={(e) => this.handleChange(e, 'description')}
-                                    className={classes.textField}
-                                    margin="normal"
-                                    variant="outlined"
-                                />
-                            </div>
-                        </div>}
-
-                    {this.state.tabValue === 1 &&
-                        <div style={{ maxHeight: 300, overflow: 'auto' }}>
-                            <List className={classes.root}>
-                                {this.renderSeries()}
-                            </List>
+                            <TextField
+                                id="outlined-name"
+                                label="Name"
+                                className={props.classes.textField}
+                                value={instance.name}
+                                onChange={(e) => handleChange(e, 'name')}
+                                margin="normal"
+                                variant="outlined"
+                            />
                         </div>
-                    }
-                </CardContent>
-                <CardActions>
-                    <Button size="small" color="primary" onClick={this.handlerSubmit}>
-                        Save
-                    </Button>
-                    <Button size="small" color="primary" onClick={() => {
-                        history.push('/characters/listing')
-                    }}>
-                        Cancel
-                    </Button>
-                </CardActions>
-            </Card>
-        )
-    }
+                        <div>
+                            <TextField
+                                id="outlined-multiline-flexible"
+                                label="Description"
+                                multiline
+                                rowsMax="5"
+                                value={instance.description}
+                                onChange={(e) => handleChange(e, 'description')}
+                                className={props.classes.textField}
+                                margin="normal"
+                                variant="outlined"
+                            />
+                        </div>
+                    </div>}
 
+                {tabValue === 1 &&
+                    <div style={{ maxHeight: 300, overflow: 'auto' }}>
+                        <List className={props.classes.root}>
+                            {renderSeries()}
+                        </List>
+                    </div>
+                }
+            </CardContent>
+            <CardActions>
+                <Button size="small" color="primary" onClick={handlerSubmit}>
+                    Save
+                </Button>
+                <Button size="small" color="primary" onClick={() => {
+                    history.push('/characters/listing')
+                }}>
+                    Cancel
+                </Button>
+            </CardActions>
+        </Card>
+    )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        itens: state.character.itens,
-        instance: state.character.instance,
-        series: state.character.series
-    }
-}
+const mapStateToProps = (state) => ({
+    itens: state.character.itens,
+    instance: state.character.instance,
+    series: state.character.series
+})
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(Actions, dispatch)
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch)
 
 export default withStyles(style)(connect(mapStateToProps, mapDispatchToProps)(Update))
