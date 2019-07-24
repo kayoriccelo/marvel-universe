@@ -1,38 +1,22 @@
 import React from 'react'
 import {
-    makeStyles, Grid, CardHeader, Avatar, List, ListSubheader, ListItem, ListItemText, ListItemIcon
+    withStyles, Grid, CardHeader, Avatar, List, ListSubheader, ListItem, ListItemText, ListItemIcon
 } from "@material-ui/core"
 import { Link } from "react-router-dom"
 
 import routes from "../../../routes"
+import leftStyle from './styles'
 
-export const LeftContainer = () => {
-    const classes = useStyles()
+const LeftContainer = ({ classes }) => {
 
-    function renderListItems(routes) {
-
-        return (
-            <List
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
-                        Cadastros
-                    </ListSubheader>
-                }
-                className={classes.root}
-            >
-                {routes.map(item =>
-                    <Link to={item.path}>
-                        <ListItem button>
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.title} />
-                        </ListItem>
-                    </Link>
-                )}
-            </List>
-        )
-    }
+    const renderMenuItem = (item) => (
+        <Link to={item.path} key={item.title}>
+            <ListItem button key={item.title}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.title} />
+            </ListItem>
+        </Link>
+    )
 
     return (
         <Grid item xs={3}>
@@ -45,18 +29,16 @@ export const LeftContainer = () => {
                         src="http://hidetoyasunori.com/portfolio/wp-content/uploads/2017/02/marvel_favicon.png" />
                 }
             />
-            {renderListItems(routes)}
+            <List
+                component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={<ListSubheader component="div" id="nested-list-subheader"> Cadastros </ListSubheader>}
+                className={classes.root}
+            >
+                {routes.map(item => renderMenuItem(item))}
+            </List>
         </Grid>
     )
 }
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-    nested: {
-        paddingLeft: theme.spacing(4),
-    },
-}))
+export default withStyles(leftStyle, { withTheme: true })(LeftContainer)

@@ -4,7 +4,7 @@ import { withStyles, Grid, Card } from "@material-ui/core"
 
 import history from '../../history'
 import { LeftContainer, RightContainer } from '../../components'
-import { styles } from './styles'
+import AppStyle from './styles'
 
 
 const App = ({ classes }) => {
@@ -15,8 +15,8 @@ const App = ({ classes }) => {
                 <Grid item xs={12}>
                     <Card className={classes.card}>
                         <Grid container>
-                            <LeftContainer classes={classes} />
-                            <RightContainer classes={classes} />
+                            <LeftContainer />
+                            <RightContainer />
                         </Grid>
                     </Card>
                 </Grid>
@@ -25,4 +25,4 @@ const App = ({ classes }) => {
     )
 }
 
-export default withStyles(styles)(App)
+export default withStyles(AppStyle)(App)
