@@ -42,21 +42,23 @@ export const Update = props => {
     const [instance, setInstance] = useState(null)
     const [tabValue, setTabValue] = useState(0)
 
-    useEffect(() => {
-        instance === null && setInstance(props.instance)
-    }, [props.instance])
+    const { setTitle, clearSeries, loadCharacter } = props
 
     useEffect(() => {
-        props.loadCharacter({ id: props.id }).then(res => {
-            props.tab === 'series' && props.setTabValue(1)
-            props.setTitle(`Update Character ${instance.name}`)
+        instance === null && loadCharacter({ id: props.id }).then(resp => {
+            instance !== props.instance && setInstance(props.instance)
         })
+    }, [instance, props.instance, props.id, loadCharacter])
+
+    useEffect(() => {
+        props.tab === 'series' && setTabValue(1)
+        setTitle(`Update Character ${instance && instance.name}`)
 
         return () => {
-            props.setTitle(`Dashboard`)
-            props.clearSeries()
+            setTitle(`Dashboard`)
+            clearSeries()
         }
-    })
+    }, [props.tab, instance, setTitle, clearSeries])
 
     const handleChange = (event, name) => {
         setInstance({ ...instance, [name]: event.target.value })

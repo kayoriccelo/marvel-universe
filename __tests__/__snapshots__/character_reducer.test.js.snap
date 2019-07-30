@@ -2,14 +2,7 @@
 
 exports[`Character reducer should return the initial state 1`] = `
 Object {
-  "instance": Object {
-    "description": null,
-    "id": null,
-    "name": null,
-    "thumbnail": Object {
-      "path": "",
-    },
-  },
+  "instance": null,
   "itens": Array [],
   "series": Array [],
 }
@@ -26,12 +19,7 @@ Object {
 exports[`Character reducer should return the instance updated "UPDATE_CHARACTER" 1`] = `
 Object {
   "instance": Object {
-    "description": null,
-    "id": null,
     "name": "Testing",
-    "thumbnail": Object {
-      "path": "",
-    },
   },
   "itens": Array [],
   "series": Array [],
@@ -40,14 +28,7 @@ Object {
 
 exports[`Character reducer should return the itens "LISTING_CHARACTERS" 1`] = `
 Object {
-  "instance": Object {
-    "description": null,
-    "id": null,
-    "name": null,
-    "thumbnail": Object {
-      "path": "",
-    },
-  },
+  "instance": null,
   "itens": Array [],
   "series": Array [],
 }
@@ -55,14 +36,7 @@ Object {
 
 exports[`Character reducer should return the series "LISTING_SERIES" 1`] = `
 Object {
-  "instance": Object {
-    "description": null,
-    "id": null,
-    "name": null,
-    "thumbnail": Object {
-      "path": "",
-    },
-  },
+  "instance": null,
   "itens": Array [],
   "series": undefined,
 }

@@ -4,14 +4,7 @@ import * as Types from '../types'
 export const initialState = {
     itens: [],
     series: [],
-    instance: {
-        id: null,
-        name: null,
-        description: null,
-        thumbnail: {
-            path: ''
-        }
-    }
+    instance: null
 }
 
 export const characterReducer = (state = initialState, action) => {
