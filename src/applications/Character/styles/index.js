@@ -29,3 +29,20 @@ export default () => ({
         marginRight: 20
     }
 })
+
+export const styleUpdate = () => ({
+    textField: {
+        width: '100%'
+    },
+    media: {
+        top: 0,
+        width: '100%',
+        height: 400,
+        backgroundSize: '100% 100%',
+    },
+    avatar: {
+        margin: 10,
+        width: 80,
+        height: 80,
+    }
+})

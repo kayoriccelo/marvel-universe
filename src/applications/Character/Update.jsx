@@ -11,32 +11,8 @@ import ListIcon from '@material-ui/icons/List'
 import history from '../../history'
 
 import * as Actions from './store/actions'
+import { styleUpdate } from './styles'
 
-const style = {
-    root: {
-        width: '100%'
-    },
-    textField: {
-        width: '100%'
-    },
-    container: {
-
-    },
-    card: {
-
-    },
-    media: {
-        top: 0,
-        width: '100%',
-        height: 400,
-        backgroundSize: '100% 100%',
-    },
-    avatar: {
-        margin: 10,
-        width: 80,
-        height: 80,
-    }
-}
 
 export const Update = props => {
     const [instance, setInstance] = useState(null)
@@ -98,7 +74,7 @@ export const Update = props => {
 
     return (
         instance &&
-        <Card className={props.classes.card}>
+        <Card>
             <CardMedia
                 className={props.classes.media}
                 image={`${instance.thumbnail.path}.jpg`}
@@ -173,4 +149,4 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch)
 
-export default withStyles(style)(connect(mapStateToProps, mapDispatchToProps)(Update))
+export default withStyles(styleUpdate)(connect(mapStateToProps, mapDispatchToProps)(Update))
